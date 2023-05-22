@@ -47,6 +47,7 @@ public class LoginPage {
 
     public void NavigateHome() {
         Util.getWebDriver().get("https://demoqa.com/login");
+        Util.getWebDriver().manage().window().maximize();
         ScreenShots.takeScreenshot(Util.getWebDriver(), "Homepage");
     }
 

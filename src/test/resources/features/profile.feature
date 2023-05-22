@@ -3,15 +3,20 @@
 @Profile
 Feature: Profile page
 
-  Scenario: Testing profile page
+  Scenario Outline: Testing profile page
     Given A user is on book store page
-    When User enters login credentials and submits
-      | Username | Password |
-      |abc123| Abc1234#|
+    When User enters <username> and <password> and submits
     Then User successfully logs in
+    And <username> is displayed
     And User clicks profile from side nav
     Then Profile page is displayed
     And User logs out
+
+    Examples:
+      |username|password|
+      |"abcd"    |"Abcd1234!"|
+
+
 
 #  Scenario: Testing books in collection
 #    Given A user is on profile page

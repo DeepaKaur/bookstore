@@ -3,10 +3,14 @@
 @BookStore
 Feature: Book store page
 
-  Scenario: Testing book store to navigate to book details page without user logged in
+  Scenario Outline: Testing book store to navigate to book details page without user logged in
     Given A user navigates to book store website
-    When User clicks "Git Pocket Guide" link from table
-    Then Book details page for "Git Pocket Guide" is displayed
+    When User clicks <bookName> link from table
+    Then Book details page for <bookName> is displayed
+
+    Examples:
+      | bookName |
+      |    "Git Pocket Guide" |
 
 #
 #  Scenario: Testing book store to add book to collection

@@ -11,6 +11,7 @@ public class BookStorePage {
     public void navigateBookStorePage() {
         System.out.println(this.getClass().getName() + " navigateBookStorePage");
         Util.getWebDriver().get("https://demoqa.com/books");
+        Util.getWebDriver().manage().window().maximize();
         ScreenShots.takeScreenshot(Util.getWebDriver(),"BookStore");
     }
 

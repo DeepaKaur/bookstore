@@ -11,6 +11,7 @@ public class ProfilePage {
 
     public void NavigateHome() {
         Util.getWebDriver().get("https://demoqa.com/login");
+        Util.getWebDriver().manage().window().maximize();
     }
 
     public void cleanUp() {

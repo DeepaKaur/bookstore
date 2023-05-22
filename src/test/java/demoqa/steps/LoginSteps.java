@@ -24,10 +24,11 @@ public class LoginSteps {
     }
 
 
-    @When("User enters login credentials and submits")
-    public void setLoginInput(DataTable datatable) {
+    @When("User enters {string} and {string} and submits")
+    public void setLoginInput(String username, String password) {
         System.out.println(this.getClass().getName() + " setLoginInput");
-        enterLoginCredentials(datatable);
+       // enterLoginCredentials(datatable);
+        loginPage.enterLoginCredentials(username, password);
         loginPage.clickLoginBtn();
     }
 
@@ -53,10 +54,11 @@ public class LoginSteps {
     }
 
 
-    @And("Username is displayed")
-    public void verifyLoginUser(DataTable datatable) {
+
+    @And("{string} is displayed")
+    public void verifyLoginUser(String username) {
         System.out.println(this.getClass().getName() + " verifyLoginUser");
-        String username = datatable.cell(1, 0);
+        //String username = datatable.cell(1, 0);
         Assert.assertEquals(username, loginPage.getUsername());
     }
 
@@ -78,4 +80,8 @@ public class LoginSteps {
         System.out.println(this.getClass().getName() + " userLogsOut");
         loginPage.logout();
     }
+
+
+
+
 }

@@ -17,17 +17,15 @@ Feature: Book store application login page
       |       abc   |     |
     Then Input error for password is displayed
 
-  Scenario: Testing valid login
+  Scenario Outline: Testing valid login
     Given A user is on book store login page
-    When User enters login credentials and submits
-      | Username | Password |
-      |abc123| Abc1234#|
+    When User enters <username> and <password> and submits
     Then User successfully logs in
-    And Username is displayed
-      | Username |
-      |abc123|
+    And <username> is displayed
     And User logs out
 
-
+Examples:
+    |username|password|
+    |"abcd"    |"Abcd1234!"|
 
 
